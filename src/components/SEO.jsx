@@ -3,19 +3,17 @@ import { Helmet } from 'react-helmet';
 const SEO = () => {
   return (
     <Helmet>
-      <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE" />
-      
       {/* Primary Meta Tags - Optimized for name searches */}
       <title>Ikramullah Karokhail - Full Stack Developer | Portfolio</title>
-      <meta name="description" content="Official portfolio website of Ikramullah Karokhail (ایکرام الله کروخیل) - Full Stack Developer from Afghanistan. Specializing in React, Node.js, and modern web development." />
-      <meta name="keywords" content="Ikramullah, Ikramullah Karokhail, Karokhail, ایکرام الله کروخیل, کروخیل, Afghan Developer, Ikramullah Portfolio, Karokhail Developer, Ikramullah Karokhail Developer, Web Developer Kabul, React Developer Afghanistan" />
+      <meta name="description" content="Official portfolio website of Ikramullah Karokhail (اکرام الله کروخیل) - Full Stack Developer from Afghanistan. Specializing in React, Node.js, and modern web development." />
+      <meta name="keywords" content="Ikramullah, Ikramullah Karokhail, Karokhail, اکرام الله کروخیل, کروخیل, Afghan Developer, Ikramullah Portfolio, Karokhail Developer, Ikramullah Karokhail Developer, Web Developer Kabul, React Developer Afghanistan" />
       <meta name="author" content="Ikramullah Karokhail" />
       
       {/* Alternative name variations for search engines */}
       <meta name="name.alternate" content="Ikramullah" />
       <meta name="name.alternate" content="Karokhail" />
       <meta name="name.alternate" content="Ikramullah Karokhail" />
-      <meta name="name.alternate" content="ایکرام الله کروخیل" />
+      <meta name="name.alternate" content="اکرام الله کروخیل" />
       
       {/* Open Graph Tags - Enhanced for name recognition */}
       <meta property="og:title" content="Ikramullah Karokhail | Full Stack Developer Portfolio" />
