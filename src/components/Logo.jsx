@@ -80,4 +80,56 @@ const Logo = ({ scrolled }) => {
   );
 };
 
+export const LogoIcon = () => {
+  return (
+    <svg
+      width="32"
+      height="32"
+      viewBox="0 0 100 100"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      {/* Main letter I */}
+      <path
+        d="M 30,20 L 70,20"
+        stroke="#2563eb"
+        strokeWidth="8"
+        strokeLinecap="round"
+      />
+      <path
+        d="M 50,20 L 50,80"
+        stroke="#2563eb"
+        strokeWidth="8"
+        strokeLinecap="round"
+      />
+      <path
+        d="M 30,80 L 70,80"
+        stroke="#2563eb"
+        strokeWidth="8"
+        strokeLinecap="round"
+      />
+      {/* Letter K overlay */}
+      <path
+        d="M 45,50 L 70,25"
+        stroke="#2563eb"
+        strokeWidth="8"
+        strokeLinecap="round"
+      />
+      <path
+        d="M 45,50 L 70,75"
+        stroke="#2563eb"
+        strokeWidth="8"
+        strokeLinecap="round"
+      />
+      {/* Decorative dot */}
+      <circle
+        cx="50"
+        cy="50"
+        r="4"
+        fill="#2563eb"
+      />
+    </svg>
+  );
+};
+
 export default Logo; 

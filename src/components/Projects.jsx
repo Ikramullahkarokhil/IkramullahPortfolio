@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import adilFashion from '../assets/adil-fashion.jpg'
 import holyQuran from '../assets/holy-quran.jpg'
 import portfolio from '../assets/portfolio.jpg'
+import SEO from './SEO'
 
 const Projects = () => {
   const projects = [
@@ -51,73 +52,76 @@ const Projects = () => {
   }
 
   return (
-    <div className="py-20 px-4" id="projects">
-      <motion.div
-        className="max-w-6xl mx-auto"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={containerVariants}
-      >
-        <motion.div 
-          className="text-center mb-16"
-          variants={itemVariants}
+    <>
+      <SEO />
+      <div className="py-20 px-4" id="projects">
+        <motion.div
+          className="max-w-6xl mx-auto"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={containerVariants}
         >
-          <h2 className="text-4xl font-bold text-white mb-4">
-            My Projects
-          </h2>
-          <div className="w-20 h-1 bg-blue-400 mx-auto rounded-full"></div>
-        </motion.div>
+          <motion.div 
+            className="text-center mb-16"
+            variants={itemVariants}
+          >
+            <h2 className="text-4xl font-bold text-white mb-4">
+              My Projects
+            </h2>
+            <div className="w-20 h-1 bg-blue-400 mx-auto rounded-full"></div>
+          </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              className="bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden transform-gpu transition-all duration-300"
-              variants={itemVariants}
-              whileHover={{ scale: 1.02 }}
-            >
-              <div className="relative h-48 overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <h3 className="absolute bottom-4 left-4 text-2xl font-semibold text-white">
-                  {project.title}
-                </h3>
-              </div>
-              <div className="p-6">
-                <p className="text-blue-100 mb-4 h-24 overflow-y-auto">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech, i) => (
-                    <span 
-                      key={i} 
-                      className="bg-blue-400/20 text-blue-100 text-sm px-3 py-1 rounded-full hover:bg-blue-400/30 transition-colors"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project, index) => (
+              <motion.div
+                key={index}
+                className="bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden transform-gpu transition-all duration-300"
+                variants={itemVariants}
+                whileHover={{ scale: 1.02 }}
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <h3 className="absolute bottom-4 left-4 text-2xl font-semibold text-white">
+                    {project.title}
+                  </h3>
                 </div>
-                <motion.a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="block w-full bg-white/10 hover:bg-white/20 text-white py-2 rounded-lg transition-colors text-center"
-                >
-                  View Project
-                </motion.a>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
-    </div>
+                <div className="p-6">
+                  <p className="text-blue-100 mb-4 h-24 overflow-y-auto">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.technologies.map((tech, i) => (
+                      <span 
+                        key={i} 
+                        className="bg-blue-400/20 text-blue-100 text-sm px-3 py-1 rounded-full hover:bg-blue-400/30 transition-colors"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  <motion.a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="block w-full bg-white/10 hover:bg-white/20 text-white py-2 rounded-lg transition-colors text-center"
+                  >
+                    View Project
+                  </motion.a>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </>
   )
 }
 

@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /admin/
+
+# Crawl-delay: 10
+
+# Sitemaps
+Sitemap: https://ikramullahkarokhail.vercel.app/sitemap.xml 
