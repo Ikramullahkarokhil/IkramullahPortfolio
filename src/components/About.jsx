@@ -32,7 +32,7 @@ const About = () => {
               <p className="text-base sm:text-lg text-blue-100 leading-relaxed">
                 I'm a 23-year-old Software Developer with a Bachelor's degree in Computer Science 
                 from Jahan University, Kabul, Afghanistan, graduated in 2023. My passion lies in 
-                creating innovative and user-friendly web applications using modern technologies.
+                creating innovative and user-friendly web applications and React Native applications using modern technologies.
               </p>
             </div>
 
@@ -89,7 +89,7 @@ const About = () => {
                 <div className="bg-white/5 backdrop-blur-lg rounded-lg sm:rounded-xl p-3 sm:p-4 border border-white/10">
                   <h4 className="text-base sm:text-lg font-semibold text-white mb-2">Current Goals</h4>
                   <p className="text-sm sm:text-base leading-relaxed">
-                    Actively expanding my expertise in modern web technologies and seeking opportunities
+                    Actively expanding my expertise in modern web technologies, React Native, and seeking opportunities
                     to contribute to innovative projects that make a positive impact.
                   </p>
                 </div>
