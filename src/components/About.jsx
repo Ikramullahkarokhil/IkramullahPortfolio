@@ -2,173 +2,112 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const About = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5
-      }
-    }
-  };
-
-  const approaches = [
-    "Clean and maintainable code",
-    "Responsive and intuitive design",
-    "Performance optimization",
-    "Modern development practices",
-    "User-centered approach",
-    "Continuous learning"
-  ];
-
-  const cardClasses = "min-h-[220px] md:h-[220px] bg-white/10 backdrop-blur-lg rounded-2xl p-4 md:p-6 hover:bg-white/20 transition-all duration-300 flex flex-col justify-between";
-  const gradientCardClasses = "min-h-[220px] md:h-[220px] backdrop-blur-lg rounded-2xl p-4 md:p-6 transition-all duration-300 flex flex-col justify-between";
-
   return (
-    <div className="py-12 md:py-20 px-4" id="about">
-      <motion.div 
-        className="max-w-6xl mx-auto"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={containerVariants}
-      >
-        {/* Section Title */}
-        <motion.div 
-          className="text-center mb-8 md:mb-16"
-          variants={itemVariants}
+    <section id="about" className="py-16 sm:py-20">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-8 sm:mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            About Me
-          </h2>
-          <div className="w-20 h-1 bg-blue-400 mx-auto rounded-full"></div>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">About Me</h2>
+          <div className="w-20 h-1 bg-blue-600 mx-auto rounded-full"></div>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-          {/* Left Column */}
-          <motion.div 
-            className="space-y-6 md:space-y-8"
-            variants={containerVariants}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
+          {/* Text Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="space-y-4 sm:space-y-6"
           >
-            <motion.div 
-              className={cardClasses}
-              variants={itemVariants}
-              whileHover={{ scale: 1.02 }}
-            >
-              <div>
-                <h3 className="text-xl md:text-2xl font-semibold text-white mb-3">
-                  Who I Am
-                </h3>
-                <p className="text-blue-100 leading-relaxed text-sm md:text-base">
-                  I am a passionate software developer with expertise in modern web and mobile 
-                  development technologies. My focus is on creating responsive and user-friendly 
-                  applications that provide exceptional user experiences.
-                </p>
-              </div>
-            </motion.div>
+            <div className="bg-white/5 backdrop-blur-lg rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-xl border border-white/10">
+              <h3 className="text-xl sm:text-2xl font-semibold text-white mb-3 sm:mb-4">
+                Hello, I'm Ikramullah Karokhail
+              </h3>
+              <p className="text-base sm:text-lg text-blue-100 leading-relaxed">
+                I'm a 23-year-old Software Developer with a Bachelor's degree in Computer Science 
+                from Jahan University, Kabul, Afghanistan, graduated in 2023. My passion lies in 
+                creating innovative and user-friendly web applications using modern technologies.
+              </p>
+            </div>
 
-            <motion.div 
-              className={`${gradientCardClasses} bg-gradient-to-r from-blue-600/30 to-purple-600/30 hover:from-blue-600/40 hover:to-purple-600/40`}
-              variants={itemVariants}
-              whileHover={{ scale: 1.02 }}
-            >
-              <div>
-                <h3 className="text-xl md:text-2xl font-semibold text-white mb-3">
-                  What I Do
-                </h3>
-                <p className="text-blue-100 leading-relaxed text-sm md:text-base">
-                  I specialize in building modern web applications and mobile apps using 
-                  React JS and React Native. My approach combines technical expertise with 
-                  creative problem-solving to deliver outstanding results.
-                </p>
+            <div className="bg-white/5 backdrop-blur-lg rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-xl border border-white/10">
+              <h4 className="text-lg sm:text-xl font-semibold text-white mb-2 sm:mb-3">Education</h4>
+              <p className="text-base text-blue-100 leading-relaxed">
+                Bachelor of Computer Science<br />
+                Jahan University, Kabul, Afghanistan<br />
+                Graduated: 2023
+              </p>
+            </div>
+
+            <div className="bg-white/5 backdrop-blur-lg rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-xl border border-white/10">
+              <h4 className="text-lg sm:text-xl font-semibold text-white mb-2 sm:mb-3">Technical Skills</h4>
+              <div className="grid grid-cols-2 gap-2 sm:gap-4">
+                <div>
+                  <ul className="text-sm sm:text-base text-blue-100 space-y-1.5 sm:space-y-2">
+                    <li>• React.js</li>
+                    <li>• React Native</li>
+                    <li>• JavaScript/ES6+</li>
+                    <li>• HTML5 & CSS3</li>
+                  </ul>
+                </div>
+                <div>
+                  <ul className="text-sm sm:text-base text-blue-100 space-y-1.5 sm:space-y-2">
+                    <li>• Tailwind CSS</li>
+                    <li>• Git & GitHub</li>
+                    <li>• Responsive Design</li>
+                    <li>• RESTful APIs</li>
+                  </ul>
+                </div>
               </div>
-            </motion.div>
+            </div>
           </motion.div>
 
-          {/* Right Column */}
-          <motion.div 
-            className="space-y-6 md:space-y-8"
-            variants={containerVariants}
+          {/* Additional Info Section */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative"
           >
-            <motion.div 
-              className={cardClasses}
-              variants={itemVariants}
-              whileHover={{ scale: 1.02 }}
-            >
-              <div>
-                <h3 className="text-xl md:text-2xl font-semibold text-white mb-4">
-                  My Approach
-                </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {approaches.map((approach, index) => (
-                    <motion.div
-                      key={index}
-                      className="flex items-center space-x-2"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                    >
-                      <motion.div
-                        whileHover={{ scale: 1.2 }}
-                        className="w-2 h-2 rounded-full bg-blue-400 flex-shrink-0"
-                      />
-                      <span className="text-blue-200 text-sm">{approach}</span>
-                    </motion.div>
-                  ))}
+            <div className="bg-white/5 backdrop-blur-lg rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-xl border border-white/10">
+              <div className="space-y-4 sm:space-y-6 text-blue-100">
+                <div className="bg-white/5 backdrop-blur-lg rounded-lg sm:rounded-xl p-3 sm:p-4 border border-white/10">
+                  <h4 className="text-base sm:text-lg font-semibold text-white mb-2">Professional Focus</h4>
+                  <p className="text-sm sm:text-base leading-relaxed">
+                    Specializing in front-end development with a strong focus on React.js and React Native applications.
+                    Passionate about creating responsive and intuitive user interfaces.
+                  </p>
                 </div>
-              </div>
-            </motion.div>
 
-            <motion.div 
-              className={`${gradientCardClasses} bg-gradient-to-r from-purple-600/30 to-blue-600/30 hover:from-purple-600/40 hover:to-blue-600/40`}
-              variants={itemVariants}
-              whileHover={{ scale: 1.02 }}
-            >
-              <div>
-                <h3 className="text-xl md:text-2xl font-semibold text-white mb-4">
-                  Experience Highlights
-                </h3>
-                <div className="space-y-3">
-                  <div className="relative pl-6">
-                    <motion.div
-                      className="absolute left-0 top-2 w-2 h-2 rounded-full bg-blue-400"
-                      whileHover={{ scale: 1.5 }}
-                    />
-                    <p className="text-blue-100 text-sm md:text-base">Frontend Development Expert</p>
-                  </div>
-                  <div className="relative pl-6">
-                    <motion.div
-                      className="absolute left-0 top-2 w-2 h-2 rounded-full bg-blue-400"
-                      whileHover={{ scale: 1.5 }}
-                    />
-                    <p className="text-blue-100 text-sm md:text-base">Mobile App Development Specialist</p>
-                  </div>
-                  <div className="relative pl-6">
-                    <motion.div
-                      className="absolute left-0 top-2 w-2 h-2 rounded-full bg-blue-400"
-                      whileHover={{ scale: 1.5 }}
-                    />
-                    <p className="text-blue-100 text-sm md:text-base">UI/UX Design Enthusiast</p>
-                  </div>
+                <div className="bg-white/5 backdrop-blur-lg rounded-lg sm:rounded-xl p-3 sm:p-4 border border-white/10">
+                  <h4 className="text-base sm:text-lg font-semibold text-white mb-2">Current Goals</h4>
+                  <p className="text-sm sm:text-base leading-relaxed">
+                    Actively expanding my expertise in modern web technologies and seeking opportunities
+                    to contribute to innovative projects that make a positive impact.
+                  </p>
+                </div>
+
+                <div className="bg-white/5 backdrop-blur-lg rounded-lg sm:rounded-xl p-3 sm:p-4 border border-white/10">
+                  <h4 className="text-base sm:text-lg font-semibold text-white mb-2">Languages</h4>
+                  <ul className="text-sm sm:text-base space-y-1">
+                    <li>• English - Professional Working</li>
+                    <li>• Pashto - Native</li>
+                    <li>• Dari - Fluent</li>
+                  </ul>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </motion.div>
         </div>
-      </motion.div>
-    </div>
+      </div>
+    </section>
   );
 };
 

@@ -1,8 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
+import { FiGithub, FiLinkedin, FiMail, FiPhone, FiMapPin, FiTwitter } from 'react-icons/fi';
 import emailjs from '@emailjs/browser';
-import { FiMail, FiPhone, FiMapPin } from 'react-icons/fi';
-import { FaGithub, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
 import * as Yup from 'yup';
 
 const Footer = () => {
@@ -214,25 +213,27 @@ const Footer = () => {
             <div>
               <h3 className="text-2xl font-bold text-white mb-6">Contact Information</h3>
               <div className="space-y-6">
-                <motion.div 
+                <motion.a 
+                  href="mailto:ikramullahkarokhail@gmail.com"
                   className="flex items-center space-x-4 text-blue-100 group"
                   whileHover={{ x: 5 }}
                 >
                   <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-blue-500/20 transition-colors">
                     <FiMail className="w-5 h-5" />
                   </div>
-                  <span className="text-lg">ikramullahkarokhail@gmail.com</span>
-                </motion.div>
+                  <span className="text-base sm:text-lg break-all">ikramullahkarokhail@gmail.com</span>
+                </motion.a>
 
-                <motion.div 
+                <motion.a 
+                  href="tel:+93779747449"
                   className="flex items-center space-x-4 text-blue-100 group"
                   whileHover={{ x: 5 }}
                 >
                   <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-blue-500/20 transition-colors">
                     <FiPhone className="w-5 h-5" />
                   </div>
-                  <span className="text-lg">+93779747449</span>
-                </motion.div>
+                  <span className="text-base sm:text-lg">+93 779 747 449</span>
+                </motion.a>
 
                 <motion.div 
                   className="flex items-center space-x-4 text-blue-100 group"
@@ -241,7 +242,7 @@ const Footer = () => {
                   <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-blue-500/20 transition-colors">
                     <FiMapPin className="w-5 h-5" />
                   </div>
-                  <span className="text-lg">Ahmadshah baba mena, Kabul, Afghanistan</span>
+                  <span className="text-base sm:text-lg">Ahmadshah baba mena, Kabul, Afghanistan</span>
                 </motion.div>
               </div>
             </div>
@@ -256,7 +257,7 @@ const Footer = () => {
                   whileHover={{ y: -5 }}
                   className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-blue-600/20 transition-colors text-blue-100 hover:text-blue-400"
                 >
-                  <FaLinkedinIn className="w-5 h-5" />
+                  <FiLinkedin className="w-5 h-5" />
                 </motion.a>
                 <motion.a
                   href="https://github.com/Ikramullahkarokhil"
@@ -265,7 +266,7 @@ const Footer = () => {
                   whileHover={{ y: -5 }}
                   className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-purple-600/20 transition-colors text-blue-100 hover:text-purple-400"
                 >
-                  <FaGithub className="w-5 h-5" />
+                  <FiGithub className="w-5 h-5" />
                 </motion.a>
                 <motion.a
                   href="https://x.com/Karokhail_ikram"
@@ -274,7 +275,7 @@ const Footer = () => {
                   whileHover={{ y: -5 }}
                   className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-blue-400/20 transition-colors text-blue-100 hover:text-blue-400"
                 >
-                  <FaTwitter className="w-5 h-5" />
+                  <FiTwitter className="w-5 h-5" />
                 </motion.a>
               </div>
             </div>

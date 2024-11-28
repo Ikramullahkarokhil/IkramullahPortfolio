@@ -76,7 +76,7 @@ const Projects = () => {
             {projects.map((project, index) => (
               <motion.div
                 key={index}
-                className="bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden transform-gpu transition-all duration-300"
+                className="bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden transform-gpu"
                 variants={itemVariants}
                 whileHover={{ scale: 1.02 }}
               >
@@ -84,12 +84,9 @@ const Projects = () => {
                   <img 
                     src={project.image} 
                     alt={project.title} 
+                    loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  <h3 className="absolute bottom-4 left-4 text-2xl font-semibold text-white">
-                    {project.title}
-                  </h3>
                 </div>
                 <div className="p-6">
                   <p className="text-blue-100 mb-4 h-24 overflow-y-auto">

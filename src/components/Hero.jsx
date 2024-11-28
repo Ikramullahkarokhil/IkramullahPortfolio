@@ -56,7 +56,7 @@ const Hero = () => {
             initial="hidden"
             animate="visible"
           >
-            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white relative">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white relative">
               <span className="sr-only">Ikramullah Karokhail</span>
               {nameArray.map((letter, index) => (
                 <motion.span
@@ -118,18 +118,18 @@ const Hero = () => {
             </motion.p>
           </motion.div>
 
-          {/* Buttons */}
+          {/* Buttons - Updated for better mobile responsiveness */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.4 }}
-            className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 px-4"
+            className="flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-4 px-4 mb-12 sm:mb-0"
           >
             <motion.button
               onClick={() => handleScroll('contact')}
               whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(255,255,255,0.5)" }}
               whileTap={{ scale: 0.95 }}
-              className="w-full sm:w-auto bg-white text-blue-600 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold hover:bg-blue-50 transition-colors shadow-lg text-sm sm:text-base"
+              className="w-64 sm:w-auto bg-white text-blue-600 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold hover:bg-blue-50 transition-colors shadow-lg text-base"
             >
               Get in Touch
             </motion.button>
@@ -137,26 +137,56 @@ const Hero = () => {
               onClick={() => handleScroll('projects')}
               whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(255,255,255,0.3)" }}
               whileTap={{ scale: 0.95 }}
-              className="w-full sm:w-auto bg-transparent border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold hover:bg-white/10 transition-colors text-sm sm:text-base"
+              className="w-64 sm:w-auto bg-transparent border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold hover:bg-white/10 transition-colors text-base"
             >
               View Projects
             </motion.button>
           </motion.div>
 
-          {/* Scroll indicator */}
+          {/* Scroll indicator - Updated for better mobile visibility */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 2 }}
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden sm:block"
+            className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
           >
+            <motion.p
+              animate={{ opacity: [0.5, 1, 0.5] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              className="text-white/80 text-xs sm:text-sm mb-2 font-medium"
+            >
+              Scroll to explore
+            </motion.p>
             <motion.div
               onClick={() => handleScroll('about')}
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
-              className="w-6 h-10 border-2 border-white rounded-full p-1 cursor-pointer hover:border-blue-200 transition-colors"
+              className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-white rounded-full p-1 cursor-pointer hover:border-blue-200 transition-colors flex flex-col items-center justify-start"
             >
-              <div className="w-1 h-2 bg-white rounded-full mx-auto" />
+              <motion.div 
+                animate={{ opacity: [0, 1, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+                className="w-1 h-2 bg-white rounded-full"
+              />
+            </motion.div>
+            <motion.div
+              animate={{ y: [0, 5, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, delay: 0.2 }}
+              className="mt-2"
+            >
+              <svg 
+                className="w-3 h-3 sm:w-4 sm:h-4 text-white/80" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  strokeWidth={2} 
+                  d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                />
+              </svg>
             </motion.div>
           </motion.div>
         </div>
