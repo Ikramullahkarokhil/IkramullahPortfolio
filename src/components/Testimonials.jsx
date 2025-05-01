@@ -11,7 +11,8 @@ const Testimonials = () => {
       name: "Shafiqullah Ghyasi",
       position: "Full Stack Developer",
       company: "Freelance",
-      image: "https://randomuser.me/api/portraits/men/32.jpg",
+      image:
+        "https://www.google.com/imgres?q=shafiqullah%20ghyasi&imgurl=https%3A%2F%2Fshafiqullah.ucsofficialstore.com%2Fassets%2Fimg%2Fme.png&imgrefurl=https%3A%2F%2Fshafiqullah.ucsofficialstore.com%2F&docid=xs_Xs3ZXJEFCaM&tbnid=m39ur636pQf8LM&vet=12ahUKEwjCnuSc2oGNAxXG9QIHHWvrN48QM3oECBIQAA..i&w=510&h=638&hcb=2&ved=2ahUKEwjCnuSc2oGNAxXG9QIHHWvrN48QM3oECBIQAA",
       testimonial:
         "I've had the pleasure of collaborating with Ikramullah on several projects. His expertise in React and React Native is exceptional. He's not only technically skilled but also has a great understanding of user experience and performance optimization. His ability to solve complex problems and deliver high-quality code makes him a valuable asset to any development team.",
       rating: 5,
