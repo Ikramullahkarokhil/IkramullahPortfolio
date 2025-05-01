@@ -1,10 +1,12 @@
-import { useState } from 'react'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import About from './components/About'
-import Skills from './components/Skills'
-import Projects from './components/Projects'
-import Footer from './components/Footer'
+import { useState } from "react";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Skills from "./components/Skills";
+import Projects from "./components/Projects";
+import Resume from "./components/Resume";
+import Testimonials from "./components/Testimonials";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -12,7 +14,7 @@ function App() {
       <div className="relative">
         {/* Background overlay with animated gradient */}
         <div className="fixed inset-0 bg-gradient-to-br from-gray-900/50 via-blue-900/50 to-blue-800/50 backdrop-blur-[100px]" />
-        
+
         {/* Content */}
         <div className="relative z-10">
           <Navbar />
@@ -25,8 +27,14 @@ function App() {
           <section id="skills">
             <Skills />
           </section>
+          <section id="resume">
+            <Resume />
+          </section>
           <section id="projects">
             <Projects />
+          </section>
+          <section id="testimonials">
+            <Testimonials />
           </section>
           <section id="contact">
             <Footer />
@@ -34,7 +42,7 @@ function App() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,9 +1,6 @@
+# Allow all crawlers
 User-agent: *
 Allow: /
-Disallow: /private/
-Disallow: /admin/
 
-# Crawl-delay: 10
-
-# Sitemaps
+# Sitemap location
 Sitemap: https://ikramullahkarokhail.vercel.app/sitemap.xml 

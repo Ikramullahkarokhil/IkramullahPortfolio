@@ -1,13 +1,23 @@
-import React, { useRef, useState } from 'react';
-import { motion } from 'framer-motion';
-import { FiGithub, FiLinkedin, FiMail, FiPhone, FiMapPin, FiTwitter } from 'react-icons/fi';
-import emailjs from '@emailjs/browser';
-import * as Yup from 'yup';
+import React, { useRef, useState } from "react";
+import { motion } from "framer-motion";
+import {
+  FiGithub,
+  FiLinkedin,
+  FiMail,
+  FiPhone,
+  FiMapPin,
+  FiTwitter,
+} from "react-icons/fi";
+import emailjs from "@emailjs/browser";
+import * as Yup from "yup";
 
 const Footer = () => {
   const formRef = useRef();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState({ success: false, message: '' });
+  const [submitStatus, setSubmitStatus] = useState({
+    success: false,
+    message: "",
+  });
   const [errors, setErrors] = useState({});
 
   const containerVariants = {
@@ -15,9 +25,9 @@ const Footer = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
-      }
-    }
+        staggerChildren: 0.1,
+      },
+    },
   };
 
   const itemVariants = {
@@ -26,54 +36,55 @@ const Footer = () => {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.5
-      }
-    }
+        duration: 0.5,
+      },
+    },
   };
 
   // Validation Schema
   const validationSchema = Yup.object().shape({
     name: Yup.string()
-      .required('Name is required')
-      .min(3, 'Name must be at least 3 characters')
-      .max(50, 'Name must be less than 50 characters'),
+      .required("Name is required")
+      .min(3, "Name must be at least 3 characters")
+      .max(50, "Name must be less than 50 characters"),
     email: Yup.string()
-      .required('Email is required')
-      .email('Invalid email format'),
+      .required("Email is required")
+      .email("Invalid email format"),
     message: Yup.string()
-      .required('Message is required')
-      .min(10, 'Message must be at least 10 characters')
-      .max(1000, 'Message must be less than 1000 characters')
+      .required("Message is required")
+      .min(10, "Message must be at least 10 characters")
+      .max(1000, "Message must be less than 1000 characters"),
   });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors({});
-    setSubmitStatus({ success: false, message: '' });
+    setSubmitStatus({ success: false, message: "" });
 
     const formData = {
       name: formRef.current.name.value,
       email: formRef.current.email.value,
-      message: formRef.current.message.value
+      message: formRef.current.message.value,
     };
 
     try {
       // Validate form data
       await validationSchema.validate(formData, { abortEarly: false });
-      
+
       setIsSubmitting(true);
 
       const result = await emailjs.send(
-        'service_4bfhn2j',
-        'template_r5hzmzs',
+        "service_4bfhn2j",
+        "template_r5hzmzs",
         formData,
-        'QD4h7CecBMPc-KuqX'
+        "QD4h7CecBMPc-KuqX"
       );
 
-      if (result.text === 'OK') {
+      if (result.text === "OK") {
         setSubmitStatus({
           success: true,
-          message: 'Message sent successfully! Ikramullah will get back to you soon.'
+          message:
+            "Message sent successfully! Ikramullah will get back to you soon.",
         });
         formRef.current.reset();
       }
@@ -81,7 +92,7 @@ const Footer = () => {
       if (error.inner) {
         // Yup validation errors
         const validationErrors = {};
-        error.inner.forEach(err => {
+        error.inner.forEach((err) => {
           validationErrors[err.path] = err.message;
         });
         setErrors(validationErrors);
@@ -89,9 +100,9 @@ const Footer = () => {
         // EmailJS error
         setSubmitStatus({
           success: false,
-          message: 'Failed to send message. Please try again.'
+          message: "Failed to send message. Please try again.",
         });
-        console.error('EmailJS Error:', error);
+        console.error("EmailJS Error:", error);
       }
     } finally {
       setIsSubmitting(false);
@@ -100,20 +111,15 @@ const Footer = () => {
 
   return (
     <footer className="py-12 bg-white/5 backdrop-blur-lg" id="contact">
-      <motion.div 
+      <motion.div
         className="max-w-6xl mx-auto px-4"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         variants={containerVariants}
       >
-        <motion.div 
-          className="text-center mb-12"
-          variants={itemVariants}
-        >
-          <h2 className="text-4xl font-bold text-white mb-4">
-            Get In Touch
-          </h2>
+        <motion.div className="text-center mb-12" variants={itemVariants}>
+          <h2 className="text-4xl font-bold text-white mb-4">Get In Touch</h2>
           <div className="w-20 h-1 bg-blue-400 mx-auto rounded-full"></div>
         </motion.div>
 
@@ -127,7 +133,7 @@ const Footer = () => {
                   name="name"
                   placeholder="Your Name"
                   className={`w-full px-4 py-3 rounded-lg bg-white/10 border ${
-                    errors.name ? 'border-red-400' : 'border-white/20'
+                    errors.name ? "border-red-400" : "border-white/20"
                   } text-white placeholder-white/60 focus:outline-none focus:border-blue-400 transition-colors`}
                 />
                 {errors.name && (
@@ -147,7 +153,7 @@ const Footer = () => {
                   name="email"
                   placeholder="Your Email"
                   className={`w-full px-4 py-3 rounded-lg bg-white/10 border ${
-                    errors.email ? 'border-red-400' : 'border-white/20'
+                    errors.email ? "border-red-400" : "border-white/20"
                   } text-white placeholder-white/60 focus:outline-none focus:border-blue-400 transition-colors`}
                 />
                 {errors.email && (
@@ -167,7 +173,7 @@ const Footer = () => {
                   placeholder="Your Message"
                   rows="4"
                   className={`w-full px-4 py-3 rounded-lg bg-white/10 border ${
-                    errors.message ? 'border-red-400' : 'border-white/20'
+                    errors.message ? "border-red-400" : "border-white/20"
                   } text-white placeholder-white/60 focus:outline-none focus:border-blue-400 transition-colors resize-none`}
                 ></textarea>
                 {errors.message && (
@@ -187,11 +193,13 @@ const Footer = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className={`w-full py-3 rounded-lg font-semibold transition-all duration-300 
-                  ${isSubmitting 
-                    ? 'bg-blue-400/50 cursor-not-allowed' 
-                    : 'bg-blue-500 hover:bg-blue-600'} text-white`}
+                  ${
+                    isSubmitting
+                      ? "bg-blue-400/50 cursor-not-allowed"
+                      : "bg-blue-500 hover:bg-blue-600"
+                  } text-white`}
               >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
+                {isSubmitting ? "Sending..." : "Send Message"}
               </motion.button>
 
               {submitStatus.message && (
@@ -199,7 +207,7 @@ const Footer = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   className={`text-center ${
-                    submitStatus.success ? 'text-green-400' : 'text-red-400'
+                    submitStatus.success ? "text-green-400" : "text-red-400"
                   }`}
                 >
                   {submitStatus.message}
@@ -211,9 +219,11 @@ const Footer = () => {
           {/* Contact Information */}
           <motion.div variants={itemVariants} className="space-y-8">
             <div>
-              <h3 className="text-2xl font-bold text-white mb-6">Contact Information</h3>
+              <h3 className="text-2xl font-bold text-white mb-6">
+                Contact Information
+              </h3>
               <div className="space-y-6">
-                <motion.a 
+                <motion.a
                   href="mailto:ikramullahkarokhail@gmail.com"
                   className="flex items-center space-x-4 text-blue-100 group"
                   whileHover={{ x: 5 }}
@@ -221,10 +231,12 @@ const Footer = () => {
                   <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-blue-500/20 transition-colors">
                     <FiMail className="w-5 h-5" />
                   </div>
-                  <span className="text-base sm:text-lg break-all">ikramullahkarokhail@gmail.com</span>
+                  <span className="text-base sm:text-lg break-all">
+                    ikramullahkarokhail@gmail.com
+                  </span>
                 </motion.a>
 
-                <motion.a 
+                <motion.a
                   href="tel:+93779747449"
                   className="flex items-center space-x-4 text-blue-100 group"
                   whileHover={{ x: 5 }}
@@ -235,14 +247,16 @@ const Footer = () => {
                   <span className="text-base sm:text-lg">+93 779 747 449</span>
                 </motion.a>
 
-                <motion.div 
+                <motion.div
                   className="flex items-center space-x-4 text-blue-100 group"
                   whileHover={{ x: 5 }}
                 >
                   <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-blue-500/20 transition-colors">
                     <FiMapPin className="w-5 h-5" />
                   </div>
-                  <span className="text-base sm:text-lg">Ahmadshah baba mena, Kabul, Afghanistan</span>
+                  <span className="text-base sm:text-lg">
+                    Ahmadshah baba mena, Kabul, Afghanistan
+                  </span>
                 </motion.div>
               </div>
             </div>
@@ -282,15 +296,15 @@ const Footer = () => {
           </motion.div>
         </div>
 
-        <motion.div 
+        <motion.div
           variants={itemVariants}
           className="mt-12 pt-8 border-t border-white/10 text-center text-blue-100"
         >
-          <p>© 2024 Ikramullah Karokhail. All rights reserved.</p>
+          <p>© 2025 Ikramullah Karokhail. All rights reserved.</p>
         </motion.div>
       </motion.div>
     </footer>
   );
 };
 
-export default Footer; 
+export default Footer;
